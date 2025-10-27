@@ -76,6 +76,7 @@
       text-align: center;
     }
     .step-content p {
+        width: 100%;
       font-size: 15px;
       color: #555;
       text-align: center;
@@ -165,22 +166,45 @@
 
 
   <script>
-    // Horizontal scroll effect with mouse wheel
-    const timeline = document.getElementById('timeline');
+   // Mobile-only horizontal scroll lock for timeline section
+const timeline = document.getElementById('timeline');
 
-    timeline.addEventListener('wheel', function(e) {
-        // Only act on vertical wheel movement
-        if (e.deltaY === 0) return;
-        const atStart = timeline.scrollLeft === 0;
-        const atEnd = Math.ceil(timeline.scrollLeft + timeline.offsetWidth) >= timeline.scrollWidth;
+let startX = 0;
+let startY = 0;
+let isHorizontalScroll = false;
 
-        if ((!atStart && e.deltaY < 0) || (!atEnd && e.deltaY > 0)) {
-            // Prevent page scroll when timeline can scroll
-            e.preventDefault();
-            timeline.scrollLeft += e.deltaY;
-        }
-        // If we're at edge, let native vertical scroll happen
-    });
+timeline.addEventListener('touchstart', function(e) {
+  if (e.touches.length === 1) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isHorizontalScroll = false;
+  }
+}, {passive: false});
+
+timeline.addEventListener('touchmove', function(e) {
+  if (e.touches.length !== 1) return;
+
+  const dx = Math.abs(e.touches[0].clientX - startX);
+  const dy = Math.abs(e.touches[0].clientY - startY);
+
+  // Evaluate scroll direction on first move
+  if (!isHorizontalScroll && (dx > dy)) {
+    isHorizontalScroll = true;
+  }
+
+  // Lock vertical scroll if still scrolling horizontally
+  if (isHorizontalScroll) {
+    const atStart = timeline.scrollLeft === 0;
+    const atEnd = Math.ceil(timeline.scrollLeft + timeline.offsetWidth) >= timeline.scrollWidth;
+    if (!(atStart && (e.touches[0].clientX - startX > 0)) && !(atEnd && (e.touches[0].clientX - startX < 0))) {
+      e.preventDefault();
+      // Scroll horizontally
+      timeline.scrollLeft -= e.touches[0].clientX - startX;
+      startX = e.touches[0].clientX; // update starting X
+    }
+    // Optionally: let go if at edge, so vertical scroll works
+  }
+}, {passive: false});
 
   </script>
 </body>
