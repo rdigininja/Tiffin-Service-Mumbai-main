@@ -1,226 +1,253 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>How It Works - Horizontal Timeline</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Horizontal Timeline — Scroll-to-Horizontal Section</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-      background: #f6f7fb;
+    :root{
+      --gap: 24px;
+      --item-w: 360px;
+      --accent: #2d4f2b;
+      --muted: #f4f7f2;
     }
-    .timeline-container {
-      width: 100vw;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      padding: 40px 0;
-      background: #f9fafc;
-      scroll-behavior: smooth;
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;color:#222}
+    main{min-height:200vh;padding:40px 20px;box-sizing:border-box;background:linear-gradient(180deg,#fff,#f7f9f6)}
+
+    h1{margin:0 0 18px;font-size:28px;color:var(--accent)}
+    p.lead{margin:0 0 24px;color:#444}
+
+    /* TIMELINE SECTION */
+    .timeline-section{
+      position:relative;
+      margin:48px 0;
+      height:66vh; /* big area so user 'lands' here */
+      max-height:720px;
+      min-height:420px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(90deg, rgba(45,79,43,0.04), rgba(255,255,255,0.6));
+      border-radius:14px;padding:30px;box-sizing:border-box;overflow:visible;
     }
-    .timeline-wrapper {
-      display: flex;
-      align-items: flex-start;
+
+    .timeline-container{
+      width:100%;height:100%;overflow:hidden;position:relative;
     }
-    .timeline-step {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 2px 16px #ecedf1;
-      margin: 0 24px;
-      min-width: 280px;
-      max-width: 320px;
-      flex: 0 0 28vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      padding: 32px 16px 26px 16px;
-      transition: box-shadow 0.2s;
+
+    .timeline-track{
+      display:flex;align-items:stretch;gap:var(--gap);
+      height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+      padding:20px 40px;box-sizing:border-box;
     }
-    .timeline-step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: -26px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 4px;
-      background: linear-gradient(90deg,#4fc2f7,#38c081);
-      z-index: 1;
-      border-radius: 4px;
+
+    /* Hide scrollbar in most browsers but keep for keyboard focus */
+    .timeline-track::-webkit-scrollbar{height:10px}
+    .timeline-track::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:10px}
+    .timeline-track{ -ms-overflow-style: none; scrollbar-width: none; }
+    .timeline-track::-webkit-scrollbar { display: none; }
+
+    .step{
+      flex:0 0 var(--item-w);background:white;border-radius:12px;padding:20px;box-sizing:border-box;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:flex-start;scroll-snap-align:center;
     }
-    .timeline-step:hover {
-      box-shadow: 0 4px 24px #bddfe9;
+
+    .step h3{margin:0 0 8px;font-size:18px;color:var(--accent)}
+    .step p{margin:0;color:#444;line-height:1.4}
+
+    /* Edge message / indicators */
+    .edge-indicator{position:absolute;top:18px;left:24px;font-weight:600;color:#6a6a6a}
+    .edge-indicator.right{left:auto;right:24px}
+
+    .hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.06);padding:8px 12px;border-radius:999px;font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      :root{--item-w:270px}
+      .timeline-section{height:56vh;min-height:360px}
     }
-    .circle {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(120deg,#4fc2f7,#38c081);
-      color: #fff;
-      border-radius: 50%;
-      font-size: 22px;
-      font-weight: bold;
-      line-height: 40px;
-      text-align: center;
-      box-shadow: 0 2px 8px #cdf6e3;
-      margin-bottom: 15px;
-      position: relative;
-      z-index: 2;
+    @media (max-width:600px){
+      :root{--item-w:86vw}
+      .timeline-section{height:68vh;min-height:420px}
+      .timeline-track{padding:16px}
+      .step{padding:18px}
+      h1{font-size:22px}
     }
-    .step-content h3 {
-      margin: 10px 0 8px;
-      font-size: 18px;
-      color: #19a785;
-      font-weight: 700;
-      text-align: center;
-    }
-    .step-content p {
-        width: 100%;
-      font-size: 15px;
-      color: #555;
-      text-align: center;
-      padding: 0 2px;
-    }
-    @media (max-width: 900px) {
-      .timeline-step {
-        min-width: 220px;
-        max-width: 240px;
-        font-size: 15px;
-        padding: 22px 8px 16px 8px;
-      }
-    }
-    @media (max-width: 600px) {
-      .timeline-step {
-        min-width: 85vw;
-        max-width: 92vw;
-        margin: 0 10px;
-      }
-      .timeline-container {
-        padding: 16px 0;
-      }
-      .step-content h3 { font-size: 16px; }
-      .step-content p { font-size: 13px; }
-    }
+
+    /* small polish for keyboard focus */
+    .step:focus{outline:3px solid rgba(45,79,43,0.12)}
   </style>
 </head>
 <body>
+  <main>
+    <h1>How It Works — Timeline</h1>
+    <p class="lead">Scroll into the timeline section. On desktop, mouse wheel (or trackpad) will move horizontally until the timeline ends, then normal page scroll resumes. On mobile, vertical swipes while inside the section are converted to horizontal movement; reversing works the same.</p>
 
- <div style="height: 1000px;">
-    
-</div>
+    <section style="height:60vh;background:#fff;border-radius:8px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+      <strong>Intro content</strong>
+      <p>Some page content above the timeline so you can scroll into the timeline section naturally.</p>
+    </section>
 
+    <!-- TIMELINE SECTION -->
+    <section class="timeline-section" id="timelineSection">
+      <div class="timeline-container">
+        <div class="edge-indicator left">Start</div>
+        <div class="edge-indicator right">End</div>
 
-  <div class="timeline-container" id="timeline">
-    <div class="timeline-wrapper">
-      <div class="timeline-step">
-        <div class="circle"><span>1</span></div>
-        <div class="step-content">
-          <h3>Select Your Meal Plan</h3>
-          <p>Browse our flexible meal options – choose from Veg, Jain, Healthy, or Customized tiffin plans. Available on daily, weekly, or monthly subscriptions.</p>
+        <div class="timeline-track" id="timelineTrack" tabindex="0" aria-label="Horizontal timeline">
+          <!-- Steps: example six steps matching user's content -->
+          <article class="step">
+            <h3>STEP 1 — Select Your Meal Plan</h3>
+            <p>Browse flexible meal options — Veg, Jain, Healthy, or Customized. Choose daily, weekly, or monthly subscriptions.</p>
+          </article>
+          <article class="step">
+            <h3>STEP 2 — Place Your Order</h3>
+            <p>Order in a few clicks. Sign up and choose delivery schedule for lunch, dinner, or both. No calls — no hassle.</p>
+          </article>
+          <article class="step">
+            <h3>STEP 3 — Fresh Meals, Cooked Daily</h3>
+            <p>Our chefs prepare fresh meals each morning, balanced and preservative-free — just like home.</p>
+          </article>
+          <article class="step">
+            <h3>STEP 4 — On-Time Delivery, Every Time</h3>
+            <p>We deliver hot tiffins across Mumbai. Smart routing ensures meals arrive on time — home, office, or college.</p>
+          </article>
+          <article class="step">
+            <h3>STEP 5 — Eat Well, Live Better</h3>
+            <p>Enjoy a rotating menu that never gets boring. Unbox your meal and enjoy that ghar ka khana feeling.</p>
+          </article>
+          <article class="step">
+            <h3>STEP 6 — Pause, Switch, or Cancel Anytime</h3>
+            <p>Plans change — pause, reschedule, or change your meal type via dashboard or WhatsApp support.</p>
+          </article>
         </div>
-      </div>
-      <div class="timeline-step">
-        <div class="circle"><span>2</span></div>
-        <div class="step-content">
-          <h3>Place Your Order</h3>
-          <p>Order online in just a few clicks. Sign up and choose your preferred delivery schedule for lunch, dinner, or both. No calls, no hassle.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="circle"><span>3</span></div>
-        <div class="step-content">
-          <h3>Fresh Meals, Cooked Daily</h3>
-          <p>Our chefs prepare meals every morning using fresh, local ingredients – just like home. Every tiffin is balanced, hygienic, and preservative-free.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="circle"><span>4</span></div>
-        <div class="step-content">
-          <h3>On-Time Delivery, Every Time</h3>
-          <p>We deliver hot tiffins across Mumbai – home, office, or college. Our intelligent routing ensures your meal reaches you on time, every time.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="circle"><span>5</span></div>
-        <div class="step-content">
-          <h3>Eat Well, Live Better</h3>
-          <p>Enjoy a rotating menu of tasty dishes that never get boring. Unbox your meal and enjoy that ghar ka khana feeling – no cooking, no stress.</p>
-        </div>
-      </div>
-      <div class="timeline-step">
-        <div class="circle"><span>6</span></div>
-        <div class="step-content">
-          <h3>Pause, Switch, or Cancel Anytime</h3>
-          <p>Plans change? No worries. You can easily pause, reschedule, or change your meal type through your account dashboard or WhatsApp support.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
+        <div class="hint" id="scrollHint">Scroll →</div>
+      </div>
+    </section>
 
-<div style="height: 4000px;">
-    
-</div>
+    <section style="height:60vh;background:#fff;border-radius:8px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.04);margin-top:28px;">
+      <strong>More page content</strong>
+      <p>After the timeline ends, the page continues to scroll normally downward.</p>
+    </section>
 
-
+  </main>
 
   <script>
+    (function(){
+      const track = document.getElementById('timelineTrack');
+      const section = document.getElementById('timelineSection');
+      const hint = document.getElementById('scrollHint');
 
-const timeline = document.getElementById('timeline');
+      // Utility to tell whether element is in viewport (mostly vertical center)
+      function isSectionMostlyVisible(){
+        const rect = section.getBoundingClientRect();
+        return (rect.top < window.innerHeight*0.6 && rect.bottom > window.innerHeight*0.2);
+      }
 
-timeline.addEventListener('wheel', function(e) {
-  // Only act on vertical wheel movement
-  if (e.deltaY === 0) return;
-  const atStart = timeline.scrollLeft === 0;
-  const atEnd = Math.ceil(timeline.scrollLeft + timeline.offsetWidth) >= timeline.scrollWidth;
+      // Update hint (start / end / middle)
+      function updateHint(){
+        const max = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft <= 4) hint.textContent = 'Scroll →';
+        else if (track.scrollLeft >= max - 4) hint.textContent = 'Done — Scroll Down';
+        else hint.textContent = 'Drag / Wheel to scroll';
+      }
+      updateHint();
 
-  if ((!atStart && e.deltaY < 0) || (!atEnd && e.deltaY > 0)) {
-    // Prevent page scroll when timeline can scroll
-    e.preventDefault();
-    timeline.scrollLeft += e.deltaY;
-  }
-  // If we're at edge, let native vertical scroll happen
-});
+      // --- Desktop wheel -> horizontal mapping (but allow normal page scroll when at ends) ---
+      track.addEventListener('wheel', function(e){
+        // Only when the timeline section is mostly visible (so user intended to interact with it)
+        if (!isSectionMostlyVisible()) return; // allow page scroll
 
+        const deltaY = e.deltaY;
+        const atStart = track.scrollLeft <= 0;
+        const maxScrollLeft = track.scrollWidth - track.clientWidth;
+        const atEnd = track.scrollLeft >= maxScrollLeft - 1;
 
-let startX = 0;
-let startY = 0;
-let isHorizontalScroll = false;
+        // If user is trying to scroll beyond ends, let the page scroll normally
+        if ((atStart && deltaY < 0) || (atEnd && deltaY > 0)) {
+          // let default so page scrolls
+          return;
+        }
 
-timeline.addEventListener('touchstart', function(e) {
-  if (e.touches.length === 1) {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    isHorizontalScroll = false;
-  }
-}, {passive: false});
+        // otherwise consume the wheel and move horizontally
+        e.preventDefault();
+        // Use scrollBy for smooth feel (no heavy animation)
+        track.scrollBy({ left: deltaY, behavior: 'auto' });
+        // update hint
+        requestAnimationFrame(updateHint);
+      }, { passive: false });
 
-timeline.addEventListener('touchmove', function(e) {
-  if (e.touches.length !== 1) return;
+      // --- Touch handling for mobile: map vertical swipes to horizontal scroll ---
+      let touchStartY = 0;
+      let touchStartX = 0;
+      let lastTouchTime = 0;
 
-  const dx = Math.abs(e.touches[0].clientX - startX);
-  const dy = Math.abs(e.touches[0].clientY - startY);
+      track.addEventListener('touchstart', function(e){
+        if (e.touches.length === 1){
+          touchStartY = e.touches[0].clientY;
+          touchStartX = e.touches[0].clientX;
+          lastTouchTime = Date.now();
+        }
+      }, {passive:true});
 
-  // Evaluate scroll direction on first move
-  if (!isHorizontalScroll && (dx > dy)) {
-    isHorizontalScroll = true;
-  }
+      track.addEventListener('touchmove', function(e){
+        if (e.touches.length !== 1) return;
+        // If section not visible enough, don't hijack (allow page)
+        if (!isSectionMostlyVisible()) return;
 
-  // Lock vertical scroll if still scrolling horizontally
-  if (isHorizontalScroll) {
-    const atStart = timeline.scrollLeft === 0;
-    const atEnd = Math.ceil(timeline.scrollLeft + timeline.offsetWidth) >= timeline.scrollWidth;
-    if (!(atStart && (e.touches[0].clientX - startX > 0)) && !(atEnd && (e.touches[0].clientX - startX < 0))) {
-      e.preventDefault();
-      // Scroll horizontally
-      timeline.scrollLeft -= e.touches[0].clientX - startX;
-      startX = e.touches[0].clientX; // update starting X
-    }
-    // Optionally: let go if at edge, so vertical scroll works
-  }
-}, {passive: false});
+        const y = e.touches[0].clientY;
+        const x = e.touches[0].clientX;
+        const dy = touchStartY - y; // positive when swiping up
+        const dx = touchStartX - x;
 
+        // Heuristic: if vertical movement is more significant than horizontal, map vertical to horizontal
+        if (Math.abs(dy) > Math.abs(dx) * 0.6) {
+          // check bounds similar to wheel logic
+          const atStart = track.scrollLeft <= 0;
+          const maxScrollLeft = track.scrollWidth - track.clientWidth;
+          const atEnd = track.scrollLeft >= maxScrollLeft - 1;
+
+          if ((atStart && dy < 0) || (atEnd && dy > 0)) {
+            // reaching beyond end/start -> allow normal page scrolling
+            return; // passive so default page scroll occurs
+          }
+
+          // otherwise prevent default vertical scrolling and move horizontally by dy
+          e.preventDefault();
+          track.scrollBy({ left: dy, behavior: 'auto' });
+          touchStartY = y; // update so movement is continuous
+          touchStartX = x;
+          requestAnimationFrame(updateHint);
+        }
+      }, { passive: false });
+
+      // Allow keyboard arrow navigation inside the track
+      track.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowRight') { track.scrollBy({left: 200, behavior:'smooth'}); e.preventDefault(); }
+        if (e.key === 'ArrowLeft') { track.scrollBy({left: -200, behavior:'smooth'}); e.preventDefault(); }
+      });
+
+      // Update hint when user scrolls the track using other means
+      track.addEventListener('scroll', function(){ requestAnimationFrame(updateHint); });
+
+      // Accessibility: if user tabs into the track, hint becomes visible
+      track.addEventListener('focus', ()=> hint.style.opacity = 1);
+      track.addEventListener('blur', ()=> hint.style.opacity = 0.95);
+
+      // Optional: when user reaches end via programmatic or touch, give a tiny nudge so page scroll continues
+      // (not required but improves UX)
+      let lastKnown = 0;
+      setInterval(()=>{
+        const max = track.scrollWidth - track.clientWidth;
+        if (Math.abs(track.scrollLeft - lastKnown) > 1) { lastKnown = track.scrollLeft; updateHint(); }
+      }, 300);
+
+      // If user resizes window, ensure hint updates
+      window.addEventListener('resize', updateHint);
+
+      // Simple example for reversing: when the timeline is not in view, natural page scrolling applies.
+      // The two-way mapping (vertical -> horizontal and horizontal -> vertical resume at ends) is handled above.
+
+    })();
   </script>
 </body>
 </html>
