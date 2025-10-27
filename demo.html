@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How It Works - Horizontal Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      background: #f6f7fb;
+    }
+    .timeline-container {
+      width: 100vw;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding: 40px 0;
+      background: #f9fafc;
+      scroll-behavior: smooth;
+    }
+    .timeline-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+    .timeline-step {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 16px #ecedf1;
+      margin: 0 24px;
+      min-width: 280px;
+      max-width: 320px;
+      flex: 0 0 28vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 32px 16px 26px 16px;
+      transition: box-shadow 0.2s;
+    }
+    .timeline-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -26px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg,#4fc2f7,#38c081);
+      z-index: 1;
+      border-radius: 4px;
+    }
+    .timeline-step:hover {
+      box-shadow: 0 4px 24px #bddfe9;
+    }
+    .circle {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(120deg,#4fc2f7,#38c081);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 40px;
+      text-align: center;
+      box-shadow: 0 2px 8px #cdf6e3;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+    .step-content h3 {
+      margin: 10px 0 8px;
+      font-size: 18px;
+      color: #19a785;
+      font-weight: 700;
+      text-align: center;
+    }
+    .step-content p {
+      font-size: 15px;
+      color: #555;
+      text-align: center;
+      padding: 0 2px;
+    }
+    @media (max-width: 900px) {
+      .timeline-step {
+        min-width: 220px;
+        max-width: 240px;
+        font-size: 15px;
+        padding: 22px 8px 16px 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .timeline-step {
+        min-width: 85vw;
+        max-width: 92vw;
+        margin: 0 10px;
+      }
+      .timeline-container {
+        padding: 16px 0;
+      }
+      .step-content h3 { font-size: 16px; }
+      .step-content p { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline-container" id="timeline">
+    <div class="timeline-wrapper">
+      <div class="timeline-step">
+        <div class="circle"><span>1</span></div>
+        <div class="step-content">
+          <h3>Select Your Meal Plan</h3>
+          <p>Browse our flexible meal options – choose from Veg, Jain, Healthy, or Customized tiffin plans. Available on daily, weekly, or monthly subscriptions.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="circle"><span>2</span></div>
+        <div class="step-content">
+          <h3>Place Your Order</h3>
+          <p>Order online in just a few clicks. Sign up and choose your preferred delivery schedule for lunch, dinner, or both. No calls, no hassle.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="circle"><span>3</span></div>
+        <div class="step-content">
+          <h3>Fresh Meals, Cooked Daily</h3>
+          <p>Our chefs prepare meals every morning using fresh, local ingredients – just like home. Every tiffin is balanced, hygienic, and preservative-free.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="circle"><span>4</span></div>
+        <div class="step-content">
+          <h3>On-Time Delivery, Every Time</h3>
+          <p>We deliver hot tiffins across Mumbai – home, office, or college. Our intelligent routing ensures your meal reaches you on time, every time.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="circle"><span>5</span></div>
+        <div class="step-content">
+          <h3>Eat Well, Live Better</h3>
+          <p>Enjoy a rotating menu of tasty dishes that never get boring. Unbox your meal and enjoy that ghar ka khana feeling – no cooking, no stress.</p>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="circle"><span>6</span></div>
+        <div class="step-content">
+          <h3>Pause, Switch, or Cancel Anytime</h3>
+          <p>Plans change? No worries. You can easily pause, reschedule, or change your meal type through your account dashboard or WhatsApp support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Horizontal scroll effect with mouse wheel
+    const timeline = document.getElementById('timeline');
+
+    timeline.addEventListener('wheel', function(e) {
+        // Only act on vertical wheel movement
+        if (e.deltaY === 0) return;
+        const atStart = timeline.scrollLeft === 0;
+        const atEnd = Math.ceil(timeline.scrollLeft + timeline.offsetWidth) >= timeline.scrollWidth;
+
+        if ((!atStart && e.deltaY < 0) || (!atEnd && e.deltaY > 0)) {
+            // Prevent page scroll when timeline can scroll
+            e.preventDefault();
+            timeline.scrollLeft += e.deltaY;
+        }
+        // If we're at edge, let native vertical scroll happen
+    });
+
+  </script>
+</body>
+</html>
