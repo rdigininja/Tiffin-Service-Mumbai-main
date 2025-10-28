@@ -1311,6 +1311,7 @@ header{
 
 .why_section {
     padding: 60px 0px;
+    overflow: hidden;
 }
 
 .why_title {
