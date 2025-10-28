@@ -115,7 +115,11 @@
 
             <div class="col-md-12 col-lg-6 col-12">
                 <div class="main_banner">
-                    <img src="img/thali.png" alt="" >
+                    <div class="owl-carousel owl-theme banner-carousel">
+                        <div class="item"><img src="img/thali.png" alt=""></div>
+                        <div class="item"><img src="img/thali2.png" alt=""></div>        
+                        <div class="item"><img src="img/thali.png" alt=""></div>        
+                    </div>
                 </div>
             </div>
 
@@ -1836,6 +1840,26 @@
             });
         </script> -->
 
+        <script>
+        $('.banner-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:false,
+                dots:false,
+                autoplay:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                }
+            })
+    </script>
 
     <script>
         AOS.init();
