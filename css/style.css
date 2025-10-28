@@ -382,7 +382,7 @@ header{
 
 .meal-body .btn {
     width: 100%;
-    background-color: #2ecc71;
+    background-color: #18681c;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -394,6 +394,7 @@ header{
 
 #vegetarian-plans .btn:hover{
     background-color: #28a745 !important;
+    color: #FFF;
 }
 
 .meal-features p {
@@ -517,8 +518,8 @@ header{
     font-size: 1rem;
 }
 
-.pricing-tab.active {
-    background: #28a745;
+.pricing-tab.active { 
+    background: #18681c;
     color: white;
 }
 
@@ -1462,6 +1463,7 @@ header{
             border-radius: 15px;
             display: flex;
             justify-content: center;
+            margin: 30px 0;
         }
 
         .howto-work .row{
