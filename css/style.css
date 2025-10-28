@@ -322,7 +322,7 @@ header{
 }
 .navbar{
     top: 40px;
-    padding: 10px 0;
+    padding: 5px 0 !important;
 }
 .main-logo  {
     width: 100px;
