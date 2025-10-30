@@ -1764,6 +1764,11 @@ header{
         .product_section .owl-carousel .owl-stage-outer{
             padding: 150px 0 0 0 !important;
         }
+        .product_section h2{
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+     }
 
         .food-box{
             border: 1px solid #ddd;
@@ -1780,8 +1785,7 @@ header{
         .food-box img {
             border-radius: 50%;
             margin-top: -120px;
-            width:250px !important;
-            height: 250px !important;
+            width: 90% !important;
             margin-bottom: 15px;
         }
 
@@ -1801,42 +1805,109 @@ header{
         }
 
         .food-box-description{
-            font-size: 16px;
+            font-size: 15px;
             color: #666;
             margin-bottom: 15px;
         }
 
-        .btn-pricee{
-            position: relative;
-            border: 2px solid #18681c !important;
-            color: #18681c !important;
-            padding: 8px 40px 5px 40px !important;
+        .food-box-btn{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 10px;
         }
-         .btn-pricee:hover{
-            background-color: #18681c !important;
-            color: #fff !important;
-         }
 
-        .btn-pricee .start-price{
-            font-size: 8px !important;
-            position: absolute;
-            top: 1px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0 5px !important;
-            font-weight: 500 !important;
+        .btn-pricee{
+            border: 2px solid #18681c !important;
+            color: #18681c !important; 
+            font-weight: 600 !important;
             width: 100% !important;
         }
 
         .btn-order-box{
             background-color: #18681c !important;
             color: #fff !important;
-            padding: 8px 30px 8px 30px;
-            border: none;
+            width: 100% !important;
+            font-weight: 600 !important;
+            border: none !important;
         }
 
         .btn-order-box:hover{
-            background-color: #145a16 !important;
-            color: #fff !important;
+            background-color: #145a16;
+            color: #fff;
         }
+
+    @media (min-width: 991px) and (max-width: 1199px) {
+        .food-box-content h3{
+            font-size: 18px !important;
+        }
+
+        .food-box-description{
+            font-size: 13px !important;
+        }
+
+        .btn-pricee , .btn-order-box{
+            font-size: 13px !important;
+        }
+}
+
+    @media (min-width: 768px) and (max-width: 990px) {
+        .food-box-content h3{
+            font-size: 16px !important;
+        }
+
+        .food-box-description{
+            font-size: 12px !important;
+        }
+
+        .btn-pricee , .btn-order-box{
+            font-size: 12px !important;
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 767px) {
+        .food-box img{
+            border-radius: 50%;
+            margin-top: -85px 
+        }
+            .food-box-content h3{
+            font-size: 14px !important;
+        }
+
+        .food-box-description{
+            font-size: 10px !important;
+        }
+
+        .food-box-btn{
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .btn-pricee , .btn-order-box{
+            font-size: 12px !important;
+        }
+    }
+
+     @media (min-width: 480px) and (max-width: 599px) {
+        .food-box img{
+            border-radius: 50%;
+            margin-top: -85px 
+        }
+            .food-box-content h3{
+            font-size: 14px !important;
+        }
+
+        .food-box-description{
+            font-size: 10px !important;
+        }
+
+        /* .food-box-btn{
+            flex-direction: column;
+            gap: 5px;
+        } */
+
+        .btn-pricee , .btn-order-box{
+            font-size: 12px !important;
+        }
+     }
 
