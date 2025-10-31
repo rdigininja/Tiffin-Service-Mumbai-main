@@ -1851,6 +1851,7 @@ header{
 
         .btn-order-box{
             background-color: #18681c !important;
+            border: 2px solid #18681c !important;
             color: #fff !important;
             width: 100% !important;
             font-weight: 600 !important;
