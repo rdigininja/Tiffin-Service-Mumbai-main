@@ -1806,6 +1806,7 @@ header{
             align-items: center;
             justify-content: space-between;
             overflow: visible !important;
+            box-shadow: rgb(255 255 255 / 0%) 0px 50px 100px -20px, rgb(0 0 0 / 10%) 0px 30px 60px -30px, rgb(10 37 64 / 27%) 0px -2px 6px 0px inset;
         }
         .food-box img {
             border-radius: 50%;
@@ -1938,11 +1939,14 @@ header{
      }
 
         @media (min-width: 300px) and (max-width: 479px) {
-                 .food-box-content h3{
+            .food-box img{
+            margin-top: -105px 
+        }
+            .food-box-content h3{
             font-size: 16px !important;
         }
 
-        .food-box-description{
+            .food-box-description{
             font-size: 12px !important;
         }
 
