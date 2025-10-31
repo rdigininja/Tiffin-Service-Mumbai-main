@@ -1856,7 +1856,6 @@ header{
             text-decoration: none !important;
             width: 100% !important;
             font-weight: 600 !important;
-            border: none !important;
         }
 
         .btn-order-box:hover{
@@ -1937,6 +1936,21 @@ header{
             font-size: 12px !important;
         }
      }
+
+        @media (min-width: 300px) and (max-width: 479px) {
+                 .food-box-content h3{
+            font-size: 16px !important;
+        }
+
+        .food-box-description{
+            font-size: 12px !important;
+        }
+
+             .btn-pricee , .btn-order-box{
+                font-size: 12px !important;
+        }
+
+        }
 
 
    
