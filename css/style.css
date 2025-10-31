@@ -18,16 +18,43 @@ body{
 
 .main-button{
     background-color: #f06933; /* Green */
-    border: none;
     border-radius: 25px;
     color: white;
-    padding: 10px 25px;
+    padding: 10px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 15px;
     cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.book_now-btn{
+    background-color: #f06933;
+    border: 2px solid #f06933;
+    border-radius: 25px;
+    color: #ffffff;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.view_menu-btn{
+    border: 2px solid #18681c; /* Green */
+    border-radius: 25px;
+    color: #18681c;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
 }
 
 .txt_heading_2 {
@@ -228,11 +255,6 @@ header{
 }
 .main_icon{
     color: #f06933;;
-}
-.main-button{
-    letter-spacing: 1px;
-    color: #fff;
-    font-weight: 600;
 }
 
 .main-button:hover{
