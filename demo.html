@@ -10,63 +10,298 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Signika+Negative:300,400&display=swap');
 
-    body { 
-      font-family: "Signika Negative", sans-serif; 
-      font-weight: 300;
-      margin: 0;
-      padding: 0 20px;
-    }
-    .scrolling-wrapper {
-      margin: 90px 0;
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-      }
-      .card {
-        flex: 0 0 auto;
-        width: 100%;
-        height: 50vH;
-        background-color: blue;
-        border: 1px solid #fff;
-    }
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+   .delivery-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f8f8f8;
+}
+
+.delivery-section h2 {
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.delivery-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.delivery-locations .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.delivery-locations .row span {
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  border: 0.1px solid #ddd;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 14px 13px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.delivery-locations .row span:hover {
+  background: #ff8c00;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.delivery-locations .row.zigzag {
+  margin-left: 60px; /* Creates the zigzag offset */
+}
+
+@media (max-width: 768px) {
+  .delivery-locations .row.zigzag {
+    margin-left: 0;
+  }
+}
+
+.map-container {
+    flex: 1;
+    min-width: 300px;
+    height: 200px !important;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
   </style>
 </head>
 
 <body>
 
- <div class="scrolling-wrapper">
-  <div class="card"><h2>Card1</h2></div>
-  <div class="card"><h2>Card2</h2></div>
-  <div class="card"><h2>Card3</h2></div>
-  <div class="card"><h2>Card4</h2></div>
-</div>
-<section style="height:00vh"></section>
+ <section class="delivery-section">
+  <h2>We Deliver To</h2>
+  <div class="delivery-locations">
+    <div class="row">
+      <span>Mumbai</span>
+      <span>Thane</span>
+      <span>Navi Mumbai</span>
+      <span>Pune</span>
+    </div>
+    <div class="row zigzag">
+      <span>Borivali</span>
+      <span>Andheri</span>
+      <span>Bandra</span>
+      <span>Malad</span>
+    </div>
+    <div class="row">
+      <span>Powai</span>
+      <span>Dadar</span>
+      <span>Vashi</span>
+      <span>Kalyan</span>
+    </div>
+  </div>
+</section>
+
+
+ <section class="contact-section">
+        <div class="container">
+            <h2 class="txt_heading_2">Ready for Homely Meals?</h2>
+            <p class="section-subtitle">Get started in just 2 minutes</p>
+
+            <div class="contact-container">
+                <!-- Quick Contact -->
+                <div class="quick-contact">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Quick Connect</h3>
+
+                    <div class="contact-methods">
+                        <!-- Phone -->
+                        <div class="contact-card" onclick="window.location.href='tel:+917208726943'">
+                            <div class="contact-icon">
+                                <!-- <i class="ti ti-phone"></i> -->
+                                 <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+917208726943">+91 7208726943</a></p>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="contact-card" onclick="window.location.href='https://wa.me/917208726943'">
+                            <div class="contact-icon" style="background: #25D366;">
+                                <!-- <i class="ti ti-brand-whatsapp"></i> -->
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>WhatsApp</h3>
+                                <p><a href="https://wa.me/917208726943">Message us instantly</a></p>
+                            </div>
+                        </div>
+
+                        <div class="map-container">
+                          <!-- Embedded Google Map centered on Andheri East -->
+                          <iframe
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.47866579394!2d72.836319!3d19.1190037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676000000%3A0xcd5a1e5b4eaf4df5!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                          </iframe>
+                          <div class="map-overlay">
+                              <i class="ti ti-alert-circle"></i>
+                              Free delivery within 5 km!
+                          </div>
+                        </div>
+
+                        
+                    </div>
+
+                    
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                <h3 style="color: #2c3e50; margin-bottom: 5px;">Connect Us</h3>
+                
+
+                <form id="tiffinForm" action="tiffin-form-handler.php" method="POST">
+                    <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter 10-digit number" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label>Meal Preference</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="veg" name="preference" value="Vegetarian" checked>
+                            <label for="veg">Veg</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="nonveg" name="preference" value="Non-Vegetarian">
+                            <label for="nonveg">Non-Veg</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="both" name="preference" value="both">
+                            <label for="nonveg">Both</label>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- <div class="form-group">
+                    <label for="plan">Select Plan</label>
+                    <select id="plan" name="plan" class="form-control" required>
+                        <option value="">-- Choose Plan --</option>
+                        <option value="Daily Tiffin (1 Meal)">Daily Tiffin (1 Meal)</option>
+                        <option value="Monthly Plan (Lunch+Dinner)">Monthly Plan (Lunch+Dinner)</option>
+                        <option value="Custom Plan">Custom Plan</option>
+                    </select>
+                    </div> -->
+
+                    <div class="form-group">
+                      <label for="address">Your Message:</label> 
+                      <textarea id="address" name="address" class="form-control" placeholder="Enter your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                    <i class="ti ti-send" style="margin-right: 8px;"></i>
+                    Get Started Now
+                    </button>
+                </form>
+
+                <div class="guarantee-badge">
+                    <i class="ti ti-shield-check" style="color: #27ae60;"></i>
+                    <strong>Hygiene Guarantee:</strong> FSSAI Certified Kitchen | Daily Temperature Checks
+                </div>
+                </div>
+
+            </div>
+        </div>
+  </section>
+
+ <section class="delivery-section">
+        <div class="container">
+            <h2 class="txt_heading_2">Our Delivery Areas</h2>
+            <p class="section-subtitle">Serving fresh meals across Andheri and nearby areas</p>
+
+            <div class="delivery-container">
+                <div class="areas-list">
+                    <h3 class="areas-title">
+                        We Deliver To:
+                    </h3>
+                    <div class="areas-grid">
+                        <div class="area-item">
+                           <i class="ti ti-map-pin"></i>&nbsp;
+                            Chakala
+                        </div>
+                        <div class="area-item">
+                           <i class="ti ti-map-pin"></i>&nbsp;
+                            JB Nagar
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Marol Naka
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Sakinaka
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Asalpha
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Jagruti Nagar
+                        </div>
+                        <div class="area-item">
+                           <i class="ti ti-map-pin"></i>&nbsp;
+                            Andheri MIDC
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Chandivali
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Powai
+                        </div>
+                        <div class="area-item">
+                            <i class="ti ti-map-pin"></i>&nbsp;
+                            Kurla
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <!-- Embedded Google Map centered on Andheri East -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.47866579394!2d72.836319!3d19.1190037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676000000%3A0xcd5a1e5b4eaf4df5!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                    <div class="map-overlay">
+                        <i class="ti ti-alert-circle"></i>
+                        Free delivery within 5 km!
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-info">
+                <p><i class="ti ti-clock"></i> <strong>Delivery Timings:</strong> Lunch by 12:30 PM | Dinner by 7:30 PM
+                </p>
+                <p><i class="ti ti-info-circle"></i> Additional charges may apply for areas beyond 5 km radius</p>
+            </div>
+
+        </div>
+    </section>
 
   
-
-  <!-- GSAP Animation -->
-  <script>
-   // gsap.to()... infinity and beyond!
-// For more check out greensock.com
-let sections = gsap.utils.toArray(".card");
-ScrollTrigger.defaults({
-    markers: true,
-  });
-  gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".scrolling-wrapper",
-      pin: true,
-      scrub: 1,
-      snap: 1 / (sections.length - 1),
-      end: () => "+=" + document.querySelector(".scrolling-wrapper").offsetWidth
-    }
-  });
-  </script>
 </body>
 </html>
