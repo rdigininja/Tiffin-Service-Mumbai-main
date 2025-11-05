@@ -242,6 +242,13 @@ header{
     font-size: 60px;
     color: #18681c;
 }
+.spacial-text{
+    display: block; 
+    color: #000000; 
+    font-size: 36px !important; 
+    line-height: 40px !important;
+}
+
 
 .main_banner_text p{
     font-family: "Poppins", sans-serif;
@@ -360,17 +367,35 @@ header{
 }
 
 /* ==========responsive========= */
+@media (max-width: 1600px) {
+    .main_banner_text h1 {
+    font-size: 62px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .main_banner_text h1 {
+    font-size: 54px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main_banner_text h1 {
+    font-size: 46px;
+    }
+}
+
 @media (max-width: 991px) {
 
     .banner{
     padding: 70px 20px;
-}
+    }
 
     .main_banner_text {
     display: flex;
     align-items: center !important;
     text-align: center;
-}
+    }
 
 .main_banner img {
     width: 60%;
@@ -379,7 +404,7 @@ header{
 .main_banner_text h1 {
     font-family: "Poppins", sans-serif;
     font-weight: 800;
-    font-size: 36px;
+    font-size: 46px;
     color: #18681c;
     width: 70%;
 }
@@ -388,6 +413,16 @@ header{
     font-size: 14px;
 }
 }
+
+@media (max-width: 767px) {
+
+    .main_banner_text h1 {
+        font-size: 48px;
+        width: 100%;
+    }
+}
+
+
 
 
 @media (max-width: 525px) {
@@ -414,9 +449,7 @@ header{
     width: 65%;
 }
 .main_banner_text h1{
-    font-size: 30px;
-    text-align: center;
-    width: 100% !important;
+    font-size: 48px;
 }
 .main_banner_text p{
     font-weight: 400;
@@ -431,6 +464,48 @@ header{
     align-items: center;
 }
 
+}    
+
+
+@media (max-width: 478px) {
+    .main_banner_text h1 {
+        font-size: 42px;
+}
+.spacial-text{
+    font-size: 26px !important;
+    line-height: 34px !important;
+}
+}
+
+@media (max-width: 425px) {
+    .main_banner_text h1{
+        font-size: 38px;
+    }
+    
+}
+
+@media (max-width: 375px) {
+    .main_banner img{
+        width: 80%;
+    }
+    .main_banner_text h1{
+        font-size: 34px;
+    }
+
+    .spacial-text {
+        font-size: 26px !important;
+        line-height: 32px !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .main_banner_text h1{
+        font-size: 30px;
+    }
+    .spacial-text {
+        font-size: 20px !important;
+        line-height: 26px !important;
+    }
 }
 
 /* --------slider img----------- */
