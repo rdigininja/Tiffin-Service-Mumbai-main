@@ -1167,7 +1167,7 @@ header{
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    background-color: #f8f9fa;
+    background-color: #2ecc7133;
 }
 
 .faq-question h3 {
@@ -1208,7 +1208,8 @@ header{
 }
 
 .faq-item.active .faq-question {
-    background-color: #fef5e7;
+    background-color: #5dd19b;
+    
 }
 
 /* Trust Badges */
