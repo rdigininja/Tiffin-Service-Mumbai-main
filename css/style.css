@@ -1444,10 +1444,6 @@ header{
 }
 
 
-
-
-
-
 /* ======================== */
 .offer_box {
     background-color: #b8f0c5b4;
@@ -1673,6 +1669,18 @@ header{
 
 
 /* ================HOW TO WORK=============== */
+.no_work{
+    border-radius: 50%;
+    background-color: #1c582afa;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
         .howto-work{
             padding: 30px 20px;
             background-color: #18681c;
@@ -1712,7 +1720,16 @@ header{
 
         .work-box{
             text-align: center;
+            display: flex;    
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
         }
+
+        .work-box:hover .no_work{
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
         .work-box img{
             width: 60px;
             margin-bottom: 20px;
@@ -2209,5 +2226,133 @@ header{
 }
 
 
-   
+/* ============ video bg ============== */
 
+/* Section base */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Video background */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Optional dark overlay */
+.video-background::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+}
+
+/* Foreground content */
+.content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: 20px 20px;
+  max-width: 800px;
+  background-color: #ffffffa1;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  color: #000;
+}
+
+.content .tagline {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  color:#27ae60;
+  background-color: #ffd207;
+}
+
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.85;
+  color: #000;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 25%;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: #ff6b35 !important;
+  color: #fff;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background: #ff834f !important;
+}
+
+.btn-secondary {
+  background: #000 !important;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content h2 {
+    font-size: 2rem;
+  }
+  .content .tagline {
+    font-size: 1.1rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+/* ===============dashed border animation================= */
