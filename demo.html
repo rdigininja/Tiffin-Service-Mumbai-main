@@ -78,12 +78,154 @@
     position: relative;
 }
 
+/* =============== testimoial ========================== */
+
+.testimonial-main {
+    background-color: #18681c;
+    border-radius: 15px;
+    margin: 40px 0;
+    overflow: hidden; /* Keeps child elements inside the border radius */
+}
+
+/* Left Side Image */
+.testi-main-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ffeb; /* Light background behind image */
+    padding: 20px;
+}
+
+.testi-main-img img {
+    width: 100%;
+    max-width: 400px; /* Prevents image from getting too huge on large screens */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Right Side Box */
+.testimonial-main-box {
+    padding: 40px;
+    background-color: #ffffff;
+    height: 100%; /* Matches height of the image column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Typography */
+.test-head {
+    margin-bottom: 20px;
+}
+
+.test-head span {
+    font-family: "Dancing Script", cursive;
+    font-size: 26px;
+    font-weight: 600;
+    color: #18681c;
+    display: block;
+}
+
+.test-head h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+}
+
+/* Testimonial Item Styling */
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.testimonial-header img {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.test-details h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #000;
+}
+
+.test-details span {
+    font-size: 14px;
+    color: #666;
+}
+
+.testimonial-content .rating {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+    color: #ffc107;
+}
+
+.testimonial-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Max-width: 768px)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    .testimonial-main {
+        margin: 20px 10px; /* Add side spacing on mobile */
+        border-radius: 10px;
+    }
+
+    /* Adjust Image */
+    .testi-main-img {
+        padding: 30px 15px 0 15px; /* Remove bottom padding to merge with white box */
+    }
+
+    .testi-main-img img {
+        width: 80%; /* Make image slightly smaller on mobile */
+        margin: 0 auto;
+    }
+
+    /* Adjust Box */
+    .testimonial-main-box {
+        padding: 30px 20px;
+        border-radius: 0; /* Reset desktop border radius */
+        height: auto; /* Let content define height */
+    }
+
+    /* Adjust Typography */
+    .test-head span {
+        font-size: 22px;
+    }
+
+    .test-head h2 {
+        font-size: 30px; /* Smaller heading for mobile */
+    }
+
+    .testimonial-content p {
+        font-size: 14px;
+    }
+}
+
+
+
   </style>
 </head>
 
 <body>
 
- <section class="delivery-section">
+ <!-- <section class="delivery-section">
   <h2>We Deliver To</h2>
   <div class="delivery-locations">
     <div class="row">
@@ -105,202 +247,88 @@
       <span>Kalyan</span>
     </div>
   </div>
+</section> -->
+
+
+<section class="testimonial-main">
+    <div class="container">
+        <div class="row g-0"> <!-- Added g-0 to remove bootstrap gutter spacing -->
+            
+            <!-- Image Column -->
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="testi-main-img">
+                    <!-- Ensure this image path is correct -->
+                    <img src="img/textmonial.png" alt="Testimonial Image">
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="testimonial-main-box">
+                    
+                    <div class="test-head">
+                        <span>Customer</span>
+                        <h2>Testimonials</h2>
+                    </div>
+
+                    <!-- Owl Carousel Structure -->
+                    <div class="owl-carousel owl-theme" id="testimonial-slider">
+                        
+                        <!-- Item 1 -->
+                        <div class="item">
+                            <div class="testimonial">
+                                <div class="testimonial-header">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                    <div class="test-details">
+                                        <h4>John Doe</h4>
+                                        <span>Software Engineer</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-content">
+                                    <span class="rating">
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                    </span>
+                                    <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="item">
+                            <div class="testimonial">
+                                <div class="testimonial-header">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2">
+                                    <div class="test-details">
+                                        <h4>Jane Smith</h4>
+                                        <span>Designer</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-content">
+                                    <span class="rating">
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star-half-alt text-warning"></i>
+                                    </span>
+                                    <p>"Love the home-style taste. It really helps me focus on my work without worrying about lunch."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- End Carousel -->
+
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
- <section class="contact-section">
-        <div class="container">
-            <h2 class="txt_heading_2">Ready for Homely Meals?</h2>
-            <p class="section-subtitle">Get started in just 2 minutes</p>
-
-            <div class="contact-container">
-                <!-- Quick Contact -->
-                <div class="quick-contact">
-                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Quick Connect</h3>
-
-                    <div class="contact-methods">
-                        <!-- Phone -->
-                        <div class="contact-card" onclick="window.location.href='tel:+917208726943'">
-                            <div class="contact-icon">
-                                <!-- <i class="ti ti-phone"></i> -->
-                                 <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="contact-info">
-                                <h3>Call Us</h3>
-                                <p><a href="tel:+917208726943">+91 7208726943</a></p>
-                            </div>
-                        </div>
-
-                        <!-- WhatsApp -->
-                        <div class="contact-card" onclick="window.location.href='https://wa.me/917208726943'">
-                            <div class="contact-icon" style="background: #25D366;">
-                                <!-- <i class="ti ti-brand-whatsapp"></i> -->
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-info">
-                                <h3>WhatsApp</h3>
-                                <p><a href="https://wa.me/917208726943">Message us instantly</a></p>
-                            </div>
-                        </div>
-
-                        <div class="map-container">
-                          <!-- Embedded Google Map centered on Andheri East -->
-                          <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.47866579394!2d72.836319!3d19.1190037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676000000%3A0xcd5a1e5b4eaf4df5!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                          </iframe>
-                          <div class="map-overlay">
-                              <i class="ti ti-alert-circle"></i>
-                              Free delivery within 5 km!
-                          </div>
-                        </div>
-
-                        
-                    </div>
-
-                    
-                </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form">
-                <h3 style="color: #2c3e50; margin-bottom: 5px;">Connect Us</h3>
-                
-
-                <form id="tiffinForm" action="tiffin-form-handler.php" method="POST">
-                    <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
-                    </div>
-
-                    <div class="form-group">
-                    <label for="phone">Mobile Number</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter 10-digit number" required>
-                    </div>
-
-                    <div class="form-group">
-                    <label>Meal Preference</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="veg" name="preference" value="Vegetarian" checked>
-                            <label for="veg">Veg</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="nonveg" name="preference" value="Non-Vegetarian">
-                            <label for="nonveg">Non-Veg</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="both" name="preference" value="both">
-                            <label for="nonveg">Both</label>
-                        </div>
-                    </div>
-                    </div>
-
-                    <!-- <div class="form-group">
-                    <label for="plan">Select Plan</label>
-                    <select id="plan" name="plan" class="form-control" required>
-                        <option value="">-- Choose Plan --</option>
-                        <option value="Daily Tiffin (1 Meal)">Daily Tiffin (1 Meal)</option>
-                        <option value="Monthly Plan (Lunch+Dinner)">Monthly Plan (Lunch+Dinner)</option>
-                        <option value="Custom Plan">Custom Plan</option>
-                    </select>
-                    </div> -->
-
-                    <div class="form-group">
-                      <label for="address">Your Message:</label> 
-                      <textarea id="address" name="address" class="form-control" placeholder="Enter your message here..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                    <i class="ti ti-send" style="margin-right: 8px;"></i>
-                    Get Started Now
-                    </button>
-                </form>
-
-                <div class="guarantee-badge">
-                    <i class="ti ti-shield-check" style="color: #27ae60;"></i>
-                    <strong>Hygiene Guarantee:</strong> FSSAI Certified Kitchen | Daily Temperature Checks
-                </div>
-                </div>
-
-            </div>
-        </div>
-  </section>
-
- <section class="delivery-section">
-        <div class="container">
-            <h2 class="txt_heading_2">Our Delivery Areas</h2>
-            <p class="section-subtitle">Serving fresh meals across Andheri and nearby areas</p>
-
-            <div class="delivery-container">
-                <div class="areas-list">
-                    <h3 class="areas-title">
-                        We Deliver To:
-                    </h3>
-                    <div class="areas-grid">
-                        <div class="area-item">
-                           <i class="ti ti-map-pin"></i>&nbsp;
-                            Chakala
-                        </div>
-                        <div class="area-item">
-                           <i class="ti ti-map-pin"></i>&nbsp;
-                            JB Nagar
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Marol Naka
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Sakinaka
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Asalpha
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Jagruti Nagar
-                        </div>
-                        <div class="area-item">
-                           <i class="ti ti-map-pin"></i>&nbsp;
-                            Andheri MIDC
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Chandivali
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Powai
-                        </div>
-                        <div class="area-item">
-                            <i class="ti ti-map-pin"></i>&nbsp;
-                            Kurla
-                        </div>
-                    </div>
-                </div>
-
-                <div class="map-container">
-                    <!-- Embedded Google Map centered on Andheri East -->
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.47866579394!2d72.836319!3d19.1190037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676000000%3A0xcd5a1e5b4eaf4df5!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
-                    <div class="map-overlay">
-                        <i class="ti ti-alert-circle"></i>
-                        Free delivery within 5 km!
-                    </div>
-                </div>
-            </div>
-
-            <div class="delivery-info">
-                <p><i class="ti ti-clock"></i> <strong>Delivery Timings:</strong> Lunch by 12:30 PM | Dinner by 7:30 PM
-                </p>
-                <p><i class="ti ti-info-circle"></i> Additional charges may apply for areas beyond 5 km radius</p>
-            </div>
-
-        </div>
-    </section>
 
   
 </body>

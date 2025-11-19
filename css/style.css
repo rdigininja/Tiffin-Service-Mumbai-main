@@ -1249,200 +1249,334 @@ header{
 
 
 
-/* ================Contact Section ====================*/
+/* =========================================
+   Contact Section Styles
+   ========================================= */
 
 .contact-section {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* max-width: 1000px;
-    margin: 60px auto; */
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #f9f9f9 0%, #fff5f0 100%);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif; /* Ensure you have this font loaded */
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    overflow: hidden;
 }
 
-.section-title {
+.txt_heading_2 {
     text-align: center;
-    color: #e67e22;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #18681c; /* Your Brand Green */
     margin-bottom: 10px;
-    font-size: 2.2rem;
 }
 
 .section-subtitle {
     text-align: center;
-    color: #7f8c8d;
-    margin-bottom: 40px;
+    color: #666;
+    margin-bottom: 50px;
     font-size: 1.1rem;
 }
 
-/* Contact Container */
+/* Container Layout */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
     justify-content: center;
 }
 
-/* Quick Contact */
-.quick-contact {
-    flex: 1;
-    min-width: 300px;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+.column-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
-.contact-methods {
-    margin-top: 30px;
+/* =========================================
+   Left Column: Quick Contact & Map
+   ========================================= */
+.quick-contact {
+    flex: 1;
+    min-width: 300px; /* Prevents squishing */
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-card {
     display: flex;
     align-items: center;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     background: #f8f9fa;
-    border-radius: 8px;
-    transition: all 0.3s;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #eee;
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #e67e22;
 }
 
 .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background: #e67e22;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px;
+    margin-right: 15px;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.whatsapp-icon {
+    background: #25D366;
 }
 
 .contact-info h3 {
-    margin: 0 0 5px;
-    color: #2c3e50;
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
 }
 
 .contact-info p {
     margin: 0;
-    color: #7f8c8d;
+    color: #666;
+    font-size: 0.9rem;
 }
 
-.contact-info a {
-    color: #e67e22;
-    text-decoration: none;
+/* Map Styling */
+.map-wrapper {
+    margin: auto; /* Pushes map to bottom of container */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px; /* Fixed height is crucial for mobile */
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 600;
+    color: #18681c;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-/* Contact Form */
-.form-message-info {
-  display: inline-block;
-  font-size: 16px;
-  color: #e67e22;
-  font-weight: 500;
-  animation: blinkFade 2s ease-in-out infinite;
-}
-@keyframes blinkFade {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-
+/* =========================================
+   Right Column: Form
+   ========================================= */
 .contact-form {
     flex: 1;
     min-width: 300px;
-    padding: 30px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-message-info {
+    display: block;
+    font-size: 0.9rem;
+    color: #e67e22;
+    font-weight: 500;
+    margin-bottom: 20px;
+    animation: blinkFade 3s ease-in-out infinite;
+}
+
+@keyframes blinkFade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    color: #2c3e50;
+    margin-bottom: 6px;
+    color: #333;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .form-control {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border 0.3s;
+    font-family: inherit;
+    transition: border-color 0.3s;
 }
 
 .form-control:focus {
     outline: none;
     border-color: #e67e22;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
 }
 
+/* Radio Buttons */
 .radio-group {
     display: flex;
-    gap: 20px;
-    margin-top: 10px;
+    gap: 15px;
+    flex-wrap: wrap; /* Allows wrapping on very small screens */
 }
 
 .radio-option {
     display: flex;
     align-items: center;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    cursor: pointer;
 }
 
 .radio-option input {
     margin-right: 8px;
+    accent-color: #e67e22;
 }
 
+.radio-option label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* Submit Button */
 .submit-btn {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     background: #e67e22;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .submit-btn:hover {
     background: #d35400;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }
 
 /* Guarantee Badge */
 .guarantee-badge {
-    text-align: center;
-    margin-top: 30px;
-    padding: 15px;
+    margin-top: 25px;
+    padding: 12px;
     background: #e3f7eb;
     border-radius: 8px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: #18681c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
 }
 
-/* Responsive */
+.guarantee-badge i {
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+
+@media (max-width: 991px) {
+    .contact-section {
+        padding: 50px 15px;
+    }
+    
+    .txt_heading_2 {
+        font-size: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
     }
+    
+    .quick-contact, .contact-form {
+        min-width: 100%; /* Full width on mobile */
+        padding: 25px 20px;
+    }
+    
+    .map-wrapper {
+        height: 200px; /* Slightly smaller map on mobile */
+        margin-top: 20px;
+    }
 }
 
+@media (max-width: 480px) {
+    .txt_heading_2 {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+    
+    .quick-contact, .contact-form {
+        padding: 20px 15px;
+    }
+  
+    .radio-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .radio-option {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        flex: 1; /* Distribute space evenly */
+        justify-content: center;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
 
 /* ======================== */
 .offer_box {
@@ -1604,9 +1738,7 @@ header{
 
 
 
-/* ============================= */
-
-
+/* ===========testimonial============ */
 
 .testimonial-main{
     background-color: #18681c;

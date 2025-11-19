@@ -84,6 +84,152 @@
       padding: 15px;
       font-size: 1.2rem;
     }
+
+/* ---------------------------------------- */
+
+    .site-footer {
+        background-color: #f8f9fa;
+        padding: 60px 0 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #444;
+        border-top: 1px solid #eaeaea;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .footer-col {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    /* Logo Section */
+    .footer-logo {
+        max-width: 160px;
+        margin-bottom: 15px;
+    }
+
+    .footer-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    /* Headings */
+    .footer-heading {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #222;
+    }
+
+    /* Links */
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        text-decoration: none;
+        color: #555;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #28a745; /* Brand Green */
+        text-decoration: underline;
+    }
+
+    /* Contact Icons */
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+    }
+
+    .contact-item i {
+        margin-right: 10px;
+        color: #28a745;
+    }
+
+    .footer-seo-container {
+        background-color: #fff; /* White background to separate from grey footer */
+        padding: 30px 20px;
+        margin-top: 30px;
+        border-radius: 8px;
+        border: 1px solid #eaeaea;
+    }
+
+    .seo-heading {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* The Grid System */
+    .seo-grid {
+        display: grid;
+        /* Creates columns that auto-fit (min 200px wide) */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .seo-item {
+        font-size: 0.85rem;
+        color: #666;
+        padding: 4px 0;
+        /* Optional: makes it look like a link even if it isn't one yet */
+        cursor: default; 
+    }
+
+    .seo-item:hover {
+        color: #28a745; /* Brand color on hover */
+    }
+
+    /* Mobile tweak */
+    @media (max-width: 600px) {
+        .seo-grid {
+            grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+        }
+    }
+
+    /* Bottom Bar */
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        font-size: 0.9rem;
+        color: #888;
+    }
+
+    @media (max-width: 768px) {
+        .footer-top {
+            flex-direction: column;
+        }
+    }
+
+    
   </style>
 </head>
 </head>    
@@ -463,7 +609,6 @@
             </div>
         </div>
     </section>
-
 
 
     <section style="padding: 60px 10px;">
@@ -929,110 +1074,107 @@
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="container">
-            <h2 class="txt_heading_2">Get in Touch with Us</h2>
-            <p class="section-subtitle">Fresh, Home-Style Meals — Just a Message Away</p>
+<section class="contact-section" id="contact">
+    <div class="container">
+        <h2 class="txt_heading_2">Get in Touch with Us</h2>
+        <p class="section-subtitle">Fresh, Home-Style Meals — Just a Message Away</p>
 
-            <div class="contact-container">
-                <!-- Quick Contact -->
-                <div class="quick-contact">
-                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Quick Connect</h3>
+        <div class="contact-container">
+            
+            <!-- Left Column: Quick Contact & Map -->
+            <div class="quick-contact">
+                <h3 class="column-title">Quick Connect</h3>
 
-                    <div class="contact-methods">
-                        <!-- Phone -->
-                        <div class="contact-card" onclick="window.location.href='tel:+917208726943'">
-                            <div class="contact-icon">
-                                <!-- <i class="ti ti-phone"></i> -->
-                                 <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="contact-info">
-                                <h3>Call Us</h3>
-                                <p><a href="tel:+917208726943">+91 7208726943</a></p>
-                            </div>
+                <div class="contact-methods">
+                    <!-- Phone -->
+                    <div class="contact-card" onclick="window.location.href='tel:+917208726943'">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
                         </div>
-
-                        <!-- WhatsApp -->
-                        <div class="contact-card" onclick="window.location.href='https://wa.me/917208726943'">
-                            <div class="contact-icon" style="background: #25D366;">
-                                <!-- <i class="ti ti-brand-whatsapp"></i> -->
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-info">
-                                <h3>WhatsApp</h3>
-                                <p><a href="https://wa.me/917208726943">Message us instantly</a></p>
-                            </div>
+                        <div class="contact-info">
+                            <h3>Call Us</h3>
+                            <p>+91 72087 26943</p>
                         </div>
+                    </div>
 
-                        <div class="map-container">
-                          <!-- Embedded Google Map centered on Andheri East -->
-                          <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.47866579394!2d72.836319!3d19.1190037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676000000%3A0xcd5a1e5b4eaf4df5!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                          </iframe>
-                          <div class="map-overlay">
-                              <i class="ti ti-alert-circle"></i>
-                              Free delivery within 1 km!
-                          </div>
+                    <!-- WhatsApp -->
+                    <div class="contact-card" onclick="window.location.href='https://wa.me/917208726943'">
+                        <div class="contact-icon whatsapp-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
                         </div>
-
+                        <div class="contact-info">
+                            <h3>WhatsApp</h3>
+                            <p>Message us instantly</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="contact-form">
-                <h3 style="color: #2c3e50; margin-bottom: 5px;">Connect Us</h3>
-                <span class="form-message-info">Fill in your details and we’ll get back to you within minutes!</span>
+                <!-- Map Section -->
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15082.47866579394!2d72.836319!3d19.1190037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676000000%3A0xcd5a1e5b4eaf4df5!2sAndheri%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Free delivery within 1 km!</span>
+                    </div>
+                </div>
+            </div>
 
-                <form id="tiffinForm" action="tiffin-form-handler.php" method="POST" class="mt-3">
+            <!-- Right Column: Contact Form -->
+            <div class="contact-form">
+                <h3 class="column-title">Send a Message</h3>
+                <p class="form-message-info">Fill in your details and we’ll get back to you within minutes!</p>
+
+                <form id="tiffinForm" action="tiffin-form-handler.php" method="POST">
                     <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
                     </div>
 
                     <div class="form-group">
-                    <label for="phone">Mobile Number</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter 10-digit number" required>
+                        <label for="phone">Mobile Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter 10-digit number" required>
                     </div>
 
                     <div class="form-group">
-                    <label>Meal Preference</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="veg" name="preference" value="Vegetarian" checked>
-                            <label for="veg">Veg</label>
+                        <label>Meal Preference</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="veg" name="preference" value="Vegetarian" checked>
+                                <label for="veg">Veg</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="nonveg" name="preference" value="Non-Vegetarian">
+                                <label for="nonveg">Non-Veg</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="both" name="preference" value="both">
+                                <label for="both">Both</label>
+                            </div>
                         </div>
-                        <div class="radio-option">
-                            <input type="radio" id="nonveg" name="preference" value="Non-Vegetarian">
-                            <label for="nonveg">Non-Veg</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="both" name="preference" value="both">
-                            <label for="nonveg">Both</label>
-                        </div>
-                    </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="message">Your Message:</label> 
-                      <textarea id="message" name="message" class="form-control" placeholder="Enter your message here..." required></textarea>
+                        <label for="message">Your Message</label> 
+                        <textarea id="message" name="message" class="form-control" placeholder="Tell us about your requirement..." rows="3" required></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">
-                    <i class="ti ti-send" style="margin-right: 8px;"></i>
-                    Connect Now
+                        <i class="fa-solid fa-paper-plane"></i> Connect Now
                     </button>
                 </form>
 
                 <div class="guarantee-badge">
-                    <i class="ti ti-shield-check" style="color: #27ae60;"></i>
-                    <strong>Hygiene Guarantee:</strong> FSSAI Certified Kitchen | Daily Temperature Checks
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span><strong>Hygiene Guarantee:</strong> FSSAI Certified Kitchen & Daily Checks</span>
                 </div>
-                </div>
-
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="Corporate-section">
     <div class="container">
@@ -1066,24 +1208,81 @@
    
 
 
-    <footer style="background: #f8f9fa; padding: 40px 0 20px 0; text-align: center;">
-        <div class="container">
-            <!-- Logo Centered -->
-            <div style="margin-bottom: 20px;">
-                <img src="img/healthy-feats-logo_1.png" alt="Healthy Feast Logo" style="max-width: 180px;">
+    <footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- Top Section: Columns -->
+            <div class="footer-top">
+                <!-- Column 1: Brand -->
+                <div class="footer-col">
+                    <img src="img/healthy-feats-logo_1.png" alt="Healthy Feast Logo" class="footer-logo">
+                    <p class="footer-desc">
+                        Providing fresh, healthy, and home-style tiffin services across Mumbai. Eat healthy, live healthy.
+                    </p>
+                    <!-- Optional Social Icons -->
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="margin-right: 15px; color:#555;"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" style="margin-right: 15px; color:#555;"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" style="margin-right: 15px; color:#555;"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Policies -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@healthyfeast.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mumbai, Maharashtra</span>
+                    </div>
+                </div>
             </div>
-            <!-- Policy Links -->
-            <div style="margin-bottom: 15px;">
-                <a href="#" style="margin: 0 12px; color: #333; text-decoration: underline;">Privacy Policy</a>
-                <a href="#" style="margin: 0 12px; color: #333; text-decoration: underline;">Terms & Conditions</a>
-                <a href="#" style="margin: 0 12px; color: #333; text-decoration: underline;">Refund Policy</a>
+
+            <!-- SEO Section: Service Areas (Cleaned Up) -->
+             <div class="footer-seo-container">
+                <h4 class="seo-heading">We Deliver To</h4>
+                <div class="seo-grid">
+                    <div class="seo-item">Tiffin Service in Mumbai</div>
+                    <div class="seo-item">Tiffin Service in Andheri</div>
+                    <div class="seo-item">Tiffin Service in Juhu</div>
+                    <div class="seo-item">Tiffin Service in Bandra</div>
+                    <div class="seo-item">Tiffin Service in Dadar</div>
+                    <div class="seo-item">Tiffin Service in Powai</div>
+                    <div class="seo-item">Tiffin Service in Malad</div>
+                    <div class="seo-item">Tiffin Service in Goregaon</div>
+                    <div class="seo-item">Tiffin Service in Kandivali</div>
+                    <div class="seo-item">Tiffin Service in Chembur</div>
+                    <div class="seo-item">Tiffin Service in Ghatkopar</div>
+                    <div class="seo-item">Tiffin Service in Mulund</div>
+                    <div class="seo-item">Tiffin Service in Bhandup</div>
+                    <div class="seo-item">Tiffin Service in Kurla</div>
+                    <div class="seo-item">Tiffin Service in Colaba</div>
+                    <div class="seo-item">Tiffin Service in Marine Drive</div>
+                    <div class="seo-item">Tiffin Service in Thane</div>
+                </div>
             </div>
-            <!-- Keyword Stuffing / Service Areas -->
-            <div style="font-size: 0.95rem; color: #666; margin-bottom: 10px;">
-                Tiffin Service in Mumbai. Tiffin Service in Andheri. Tiffin Service in Juhu. Tiffin Service in Bandra. Tiffin Service in Dadar. Tiffin Service in Powai. Tiffin Service in Malad. Tiffin Service in Goregaon. Tiffin Service in Kandivali. Tiffin Service in Chembur. Tiffin Service in Ghatkopar. Tiffin Service in Mulund. Tiffin Service in Bhandup. Tiffin Service in Kurla. Tiffin Service in Colaba. Tiffin Service in Marine Drive. Tiffin Service in Thane.
-            </div>
-            <div style="font-size: 0.9rem; color: #aaa;">
-                &copy; 2024 Healthy Feast. All rights reserved.
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                &copy; 2025 Healthy Feast. All rights reserved.
             </div>
         </div>
     </footer>
