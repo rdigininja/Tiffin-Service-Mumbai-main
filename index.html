@@ -88,7 +88,7 @@
 /* ---------------------------------------- */
 
     .site-footer {
-        background-color: #f8f9fa;
+        background-color: #2ecc7126;
         padding: 60px 0 20px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #444;
@@ -250,7 +250,7 @@
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg menu">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="img/healthy-feats-logo_1.png" alt="" class="main-logo">
                 </a>
                 
@@ -264,16 +264,16 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Our Plan</a>
+                            <a class="nav-link" href="#ourplan">Our Plan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">How It Works</a>
+                            <a class="nav-link" href="#how-work">How It Works</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="demo.html">FAQ's</a>
+                            <a class="nav-link" href="#faqs">FAQ's</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -366,7 +366,7 @@
 </div>
 
 
- <section class="product_section">
+ <section class="product_section" id="ourplan">
         <div class="container mt-5"> 
             <h2>Our Tiffin Meals</h2>
             <div class="owl-carousel owl-theme product_box">
@@ -455,51 +455,107 @@
             
     </section>
 
- <section>
-        <div class="container">
-            <div class="howto-work">
-                <div class="row">
-                    <div class="col-md-12 col-lg-4 col-12">
-                        <div class="left-side-work">
-                            <h2>Order<span>.</span> Eat<span>.</span> Smile</h2>
-                            <p>Getting your favorite homemade meal is as easy as that-quick to order, delicios to eat,and sure to make you smile!</p>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-8 col-12">
-                        <div class="righ-side-work work-flow-line">
-                            <div class="row ">
-                                <div class="col-md-4 col-lg-4 col-12">
-                                    <div class="work-box" data-aos="zoom-in" data-aos-delay="0" data-aos-duration="1000">
-                                        <div class="no_work">1</div>
-                                        <img src="img/menu.svg" alt="">
-                                        <h3>Choose Your Meal</h3>
-                                        <p>Browse through a varity of delicious homemade dishes and pick what you love.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-4 col-12">
-                                    <div class="work-box" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
-                                        <div class="no_work">2</div>
-                                        <img src="img/manifest.svg" alt="">
-                                        <h3>Place Your Order</h3>   
-                                        <p>Add to Cart and Confirm It's quick and easy.</p>      
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-lg-4 col-12">
-                                    <div class="work-box" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000">
-                                        <div class="no_work">3</div>
-                                        <img src="img/enjoy.svg" alt="">
-                                        <h3>Enjoy Your Food</h3>
-                                        <p>Sit back and relax while your fresh,home-cooked meal arrives at your doorstep.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="container" id="how-work">
+        <div class="main-card p-4 p-md-5 position-relative">
+            
+            <!-- Header -->
+            <div class="text-center mx-auto mb-5 position-relative" style="max-width: 600px; z-index: 10;">
+                <!-- Removing previous header text to focus on the steps if desired, 
+                     or we can keep a generic one. I'll keep a generic food one. -->
+                <h2 class="display-5 fw-bold text-dark mb-4">How It Works</h2>
+                <p class="text-secondary fs-5">
+                    Get your favorite homemade meals in 3 simple steps
+                </p>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row g-5 position-relative pt-4">
+
+                <!-- Connecting Line (Desktop Horizontal) -->
+                <div class="connector-svg-container">
+                    <svg width="100%" height="100%" viewBox="0 0 800 160" preserveAspectRatio="none">
+                        <!-- S-Curve Logic -->
+                        <path d="M 160 80 C 270 10, 330 10, 400 80 S 530 150, 640 80" 
+                              fill="none" 
+                              stroke="#94a3b8" 
+                              stroke-width="2" 
+                              stroke-linecap="round"
+                              class="dashed-path" />
+                    </svg>
                 </div>
+
+                <!-- Connecting Line (Mobile Vertical) -->
+                <div class="connector-svg-mobile">
+                    <svg width="100%" height="100%" preserveAspectRatio="none">
+                        <line x1="1" y1="0" x2="1" y2="100%" 
+                              stroke="#94a3b8" 
+                              stroke-width="2" 
+                              class="dashed-path" />
+                    </svg>
+                </div>
+
+                <!-- Step 1: Choose Your Meal -->
+                <div class="col-md-4 text-center step-item">
+                    <div class="position-relative float-anim">
+                        <div class="step-number">1</div>
+                        <!-- Orange Icon Circle -->
+                        <div class="icon-container bg-icon-orange shadow-sm border border-white border-4">
+                             <img src="img/menu.svg" alt="" width="60px" height="60px">
+                             <!-- Decorative menu lines -->
+                             <div class="position-absolute bg-white opacity-25" style="width: 40%; height: 4px; bottom: 30%; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+
+                    <h3 class="step-title">Choose Your Meal</h3>
+                    <p class="step-desc">
+                        Browse through a variety of delicious homemade dishes and pick what you love.
+                    </p>
+                </div>
+
+                <!-- Step 2: Place Your Order -->
+                <div class="col-md-4 text-center step-item">
+                    <div class="position-relative float-anim-delayed">
+                        <div class="step-number">2</div>
+                        <!-- Blue Icon Box style (using circle container but with inner styling) -->
+                        <div class="icon-container bg-icon-blue shadow-sm border border-white border-4">
+                            <img src="img/manifest.svg" alt="" width="60px" height="60px">
+                            <!-- Little package icon decoration -->
+                            <div class="position-absolute bg-warning rounded-1 shadow-sm" style="width: 20px; height: 20px; bottom: 25px; right: 25px;"></div>
+                        </div>
+                    </div>
+
+                    <h3 class="step-title">Place Your Order</h3>
+                    <p class="step-desc">
+                        Add to Cart and Confirm. It's quick and easy.
+                    </p>
+                </div>
+
+                <!-- Step 3: Enjoy Your Food -->
+                <div class="col-md-4 text-center step-item">
+                    <div class="position-relative float-anim">
+                        <div class="step-number">3</div>
+                        <!-- Yellow Icon Circle -->
+                        <div class="icon-container bg-icon-yellow shadow-sm border border-white border-4">
+                             <img src="img/enjoy.svg" alt="" width="60px" height="60px">
+                             <!-- Confetti decoration -->
+                             <i data-lucide="sparkles" class="text-dark position-absolute" style="width: 16px; height: 16px; top: 20px; right: 20px;"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="step-title">Enjoy Your Food</h3>
+                    <p class="step-desc">
+                        Sit back and relax while your fresh, home-cooked meal arrives at your doorstep.
+                    </p>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
 
+
+
+
+ 
 
  <section>
         <div class="container">
@@ -601,7 +657,7 @@
         <div class="content">
             <h2>Eat Smart. Feel Great.</h2>
             <span class="tagline">Mumbai’s Most Trusted Customized Online Tiffin Service</span>
-            <p>Healthy, home-style meals crafted by expert dieticians — fresh, hygienic, and delivered right to your doorstep anywhere in Mumbai.</p>
+            <!-- <p>Healthy, home-style meals crafted by expert dieticians — fresh, hygienic, and delivered right to your doorstep anywhere in Mumbai.</p> -->
 
             <div class="btn-group">
             <a href="#" class="btn btn-secondary">Subscribe to Weekly Meals</a>
@@ -682,7 +738,7 @@
         </div>
     </section>
 
-    <section class="testimonial-main">
+    <section class="testimonial-main" >
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-12 p-0">
@@ -706,11 +762,11 @@
                                                 <div class="testimonial">
                                                     <div class="testimonial-header">
                                                         <div class="">
-                                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                                            <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1"> -->
                                                         </div>
                                                         <div class="test-details">
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
+                                                            <h4>Ankit S.</h4>
+                                                            <span>Corporate Manager, Andheri East</span>
                                                         </div>
                                                     </div>
 
@@ -720,19 +776,19 @@
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
+                                                            <i class="fa fa-star-half text-warning"></i>
                                                         </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
+                                                        <p>"Finally, a lunch that doesn't make me sleepy at my desk!" "I’ve tried three different tiffin services in Andheri East, and Healthy Feast is the only one that feels truly light and nutritious. The salad portions are generous, and the rotis stay soft. It’s perfect for my busy workdays near the Holiday Inn area."</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="owl-item cloned" style="width: 402.891px; margin-right: 20px;">
                                                 <div class="testimonial">
                                                     <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                                        <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1"> -->
                                                         <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
+                                                            <h4>Viren K.</h4>
+                                                            <span>Resident, Bandra West</span>
                                                         </div>
                                                     </div>
 
@@ -744,7 +800,7 @@
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
                                                         </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
+                                                        <p>"Tastes exactly like my Mom’s cooking." "Living away from home in Bandra West, I missed simple, honest food. Healthy Feast doesn't overdo the spices or oil. It’s just wholesome, consistent meals. Their 'Mini Meal' plan is perfect for my light dinners."</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -752,10 +808,10 @@
                                             <div class="owl-item" style="width: 402.891px; margin-right: 20px;">
                                                 <div class="testimonial">
                                                     <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                                        <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1"> -->
                                                         <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
+                                                            <h4>Sneha R.</h4>
+                                                            <span>Freelancer, Powai</span>
                                                         </div>
                                                     </div>
 
@@ -765,9 +821,9 @@
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
+                                                            <i class="fa fa-star-half text-warning"></i>
                                                         </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
+                                                        <p>"Great for my weight loss goals." "I wanted a tiffin service in Powai that offered low-carb options without being boring. I love that I can customize my subscription here. The variety of dals and green veggies is impressive. I've actually lost 2 kgs in a month just by switching to their balanced meal plan!"</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -775,10 +831,10 @@
                                             <div class="owl-item" style="width: 402.891px; margin-right: 20px;">
                                                 <div class="testimonial">
                                                     <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                                        <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1"> -->
                                                         <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
+                                                            <h4>Sneha K.</h4>
+                                                            <span>Senior Developer, Goregaon East</span>
                                                         </div>
                                                     </div>
 
@@ -790,7 +846,7 @@
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
                                                         </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
+                                                        <p>"Clockwork delivery at NESCO. Never late." "Security checks at NESCO IT Park can delay deliveries, but these guys have figured it out. My tiffin is on my desk by 12:45 PM sharp every day. The food is non-spicy and light, which is exactly what I need when I have back-to-back coding sprints. No acidity issues since I started next month."</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -798,10 +854,10 @@
                                             <div class="owl-item" style="width: 402.891px; margin-right: 20px;">
                                                 <div class="testimonial">
                                                     <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
+                                                        <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1"> -->
                                                         <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
+                                                            <h4>Karan M.</h4>
+                                                            <span>Tech Founder, Powai</span>
                                                         </div>
                                                     </div>
 
@@ -811,81 +867,13 @@
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
                                                             <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
+                                                            <i class="fa fa-star-half text-warning"></i>
                                                         </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
+                                                        <p>"Fuel for my 10-hour workdays." "Running a startup in Hiranandani means zero time to cook. I switched to Healthy Feast because they offer 'low-carb' options. I’ve noticed I don’t get that 4 PM sugar crash anymore. The packaging is super clean—no leaking gravies on my documents. Highly recommended for busy founders."</p>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="owl-item active" style="width: 402.891px; margin-right: 20px;">
-                                                <div class="testimonial">
-                                                    <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
-                                                        <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="testimonial-content">
-                                                        <span class="rating">
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                        </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="owl-item cloned" style="width: 402.891px; margin-right: 20px;">
-                                                <div class="testimonial">
-                                                    <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
-                                                        <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="testimonial-content">
-                                                        <span class="rating">
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                        </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="owl-item cloned" style="width: 402.891px; margin-right: 20px;">
-                                                <div class="testimonial">
-                                                    <div class="testimonial-header">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1">
-                                                        <div>
-                                                            <h4>John Doe</h4>
-                                                            <span>Software Engineer</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="testimonial-content">
-                                                        <span class="rating">
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                            <i class="fa fa-star text-warning"></i>
-                                                        </span>
-                                                        <p>"The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended.The tiffin service is amazing! The food is always fresh and delivered on time. Highly recommended."</p>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     
@@ -901,7 +889,7 @@
         </div>
     </section>
 
-    <section class="faq-section">
+    <section class="faq-section" id="faqs">
         <div class="container">
             <h2 class="txt_heading_2">Frequently Asked Questions</h2>
             <p class="section-subtitle">Everything you need to know about our service</p>
@@ -1221,9 +1209,9 @@
                     </p>
                     <!-- Optional Social Icons -->
                     <div style="margin-top: 15px;">
-                        <a href="#" style="margin-right: 15px; color:#555;"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" style="margin-right: 15px; color:#555;"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" style="margin-right: 15px; color:#555;"><i class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="https://www.facebook.com/people/HealthyFeast/61572705781082/" style="margin-right: 15px; color:#555;"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/healthy_feast_/" style="margin-right: 15px; color:#555;"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.youtube.com/@HealthyFeast247" style="margin-right: 15px; color:#555;"><i class="fab fa-youtube fa-lg"></i></a>
                     </div>
                 </div>
 
@@ -1310,6 +1298,11 @@
             });
         });
     </script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
 
     <script>
     $('.content').each( function(i){

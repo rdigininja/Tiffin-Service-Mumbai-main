@@ -1799,96 +1799,144 @@ header{
     box-shadow:  0 2px 4px rgba(0,0,0,0.2), 0 6px 8px rgba(0,0,0,0.1);         
 }
 
-
-/* ================HOW TO WORK=============== */
-.no_work{
-    border-radius: 50%;
-    background-color: #1c582afa;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    margin-bottom: 10px;
+@media (max-width: 525px) {
+    .test-head h2{
+        font-size: 32px;
+    }
+    .testimonial-main-box{
+        padding: 15px 20px;
+    }
 }
-        .howto-work{
-            padding: 30px 20px;
-            background-color: #18681c;
-            border-radius: 15px;
+
+
+/* =============how to work ============== */
+        /* Custom Colors from Screenshot */
+        .bg-step-green { background-color: #1e4d2b; } /* Dark green for numbers */
+        .bg-icon-orange { background-color: #ff9800; }
+        .bg-icon-blue { background-color: #e3f2fd; }
+        .bg-icon-yellow { background-color: #ffeb3b; }
+
+        /* Main Container Styling */
+        .main-card {
+            background: #e9ffeb !important;
+            border-radius: 2rem;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Connector Line */
+        .connector-svg-container {
+            position: absolute;
+            top: 0rem; /* Aligned with center of main icons */
+            left: 0;
+            width: 100%;
+            height: 160px; 
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+            display: none; 
+        }
+        
+        /* Mobile Connector Line */
+        .connector-svg-mobile {
+            position: absolute;
+            top: 6rem; /* Start at center of first icon */
+            bottom: 10rem; /* End roughly at last icon */
+            left: 50%;
+            width: 2px;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.4;
+            display: block !important; 
+        }
+
+        @media (min-width: 768px) {
+            .connector-svg-container { display: block; }
+            .connector-svg-mobile { display: none; }
+        }
+        
+        .dashed-path {
+            stroke-dasharray: 8, 8; 
+            animation: dash 60s linear infinite; 
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+
+        /* Step Number Badge */
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: #1e4d2b;
+            color: white;
+            border-radius: 50%;
             display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-
-        .howto-work .row{
-            align-items: center
-        }
-
-        .righ-side-work .row{
-            align-items: start
-        }
-
-        .righ-side-work{
-            background-color: aliceblue;
-            padding: 30px 10px;
-            border-radius: 10px;
-        }
-
-        .left-side-work h2{
-            font-family: 'Poppins', sans-serif;
-            font-size: 62px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-        .left-side-work p{
-            font-family: 'poppins', sans-serif;
-            font-size: 16px;
-            color: #f0f0f0;
-            line-height: 1.6;
-        }
-
-        .work-box{
-            text-align: center;
-            display: flex;    
-            flex-direction: column;
             align-items: center;
-            padding: 5px;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .work-box:hover .no_work{
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Icon Containers */
+        .icon-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            transition: transform 0.3s ease;
+            z-index: 10;
+            background-color: white; /* Fallback */
         }
 
-        .work-box img{
-            width: 60px;
-            margin-bottom: 20px;
-        }
-        .work-box h3{
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .work-box p{
-            font-size: 14px;
-            color: #666;
+        .step-item:hover .icon-container {
+            transform: scale(1.1) rotate(5deg);
         }
 
-        @media screen and (max-width:525px) {
-            .left-side-work h2{
-                font-size: 50px;
-            }
-            
-            .left-side-work p{
-                font-size: 14px;
-            }
-
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        .float-anim-delayed {
+            animation: float 6s ease-in-out 3s infinite;
         }
 
-        /* ----HOW TO WORK POPUP FORM STYLE---- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Text Styling */
+        .step-title {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .step-desc {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+        
+        /* SVG Responsive Utility */
+        @media (max-width: 768px) {
+            .icon-container { margin-top: 1.5rem; }
+        }
+/* ================================================================= */
 
 
 /* Popup form styling */
@@ -1984,7 +2032,7 @@ header{
     grid-template-rows: auto auto;    
     gap: 20px;                    
     width: 100%;
-    padding: 20px;  
+    /* padding: 20px;   */
 }
 
 .for_heading{

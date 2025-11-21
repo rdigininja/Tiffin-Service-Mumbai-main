@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How it Works - Bootstrap 5.3</title>
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Custom Colors from Screenshot */
+        .bg-step-green { background-color: #1e4d2b; } /* Dark green for numbers */
+        .bg-icon-orange { background-color: #ff9800; }
+        .bg-icon-blue { background-color: #e3f2fd; }
+        .bg-icon-yellow { background-color: #ffeb3b; }
+
+        /* Main Container Styling */
+        .main-card {
+            background: #e9ffeb !important;
+            border-radius: 2rem;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Connector Line */
+        .connector-svg-container {
+            position: absolute;
+            top: 0rem; /* Aligned with center of main icons */
+            left: 0;
+            width: 100%;
+            height: 160px; 
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+            display: none; 
+        }
+        
+        /* Mobile Connector Line */
+        .connector-svg-mobile {
+            position: absolute;
+            top: 6rem; /* Start at center of first icon */
+            bottom: 10rem; /* End roughly at last icon */
+            left: 50%;
+            width: 2px;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.4;
+            display: block !important; 
+        }
+
+        @media (min-width: 768px) {
+            .connector-svg-container { display: block; }
+            .connector-svg-mobile { display: none; }
+        }
+        
+        .dashed-path {
+            stroke-dasharray: 8, 8; 
+            animation: dash 60s linear infinite; 
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+
+        /* Step Number Badge */
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: #1e4d2b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Icon Containers */
+        .icon-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem auto;
+            position: relative;
+            transition: transform 0.3s ease;
+            z-index: 10;
+            background-color: white; /* Fallback */
+        }
+
+        .step-item:hover .icon-container {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        .float-anim-delayed {
+            animation: float 6s ease-in-out 3s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Text Styling */
+        .step-title {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .step-desc {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+        
+        /* SVG Responsive Utility */
+        @media (max-width: 768px) {
+            .icon-container { margin-top: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="main-card p-4 p-md-5 position-relative">
+            
+            <!-- Header -->
+            <div class="text-center mx-auto mb-5 position-relative" style="max-width: 600px; z-index: 10;">
+                <!-- Removing previous header text to focus on the steps if desired, 
+                     or we can keep a generic one. I'll keep a generic food one. -->
+                <h2 class="display-5 fw-bold text-dark mb-4">How It Works</h2>
+                <p class="text-secondary fs-5">
+                    Get your favorite homemade meals in 3 simple steps
+                </p>
+            </div>
+
+            <!-- Content Row -->
+            <div class="row g-5 position-relative pt-4">
+
+                <!-- Connecting Line (Desktop Horizontal) -->
+                <div class="connector-svg-container">
+                    <svg width="100%" height="100%" viewBox="0 0 800 160" preserveAspectRatio="none">
+                        <!-- S-Curve Logic -->
+                        <path d="M 160 80 C 270 10, 330 10, 400 80 S 530 150, 640 80" 
+                              fill="none" 
+                              stroke="#94a3b8" 
+                              stroke-width="2" 
+                              stroke-linecap="round"
+                              class="dashed-path" />
+                    </svg>
+                </div>
+
+                <!-- Connecting Line (Mobile Vertical) -->
+                <div class="connector-svg-mobile">
+                    <svg width="100%" height="100%" preserveAspectRatio="none">
+                        <line x1="1" y1="0" x2="1" y2="100%" 
+                              stroke="#94a3b8" 
+                              stroke-width="2" 
+                              class="dashed-path" />
+                    </svg>
+                </div>
+
+                <!-- Step 1: Choose Your Meal -->
+                <div class="col-md-4 text-center step-item">
+                    <div class="position-relative float-anim">
+                        <div class="step-number">1</div>
+                        <!-- Orange Icon Circle -->
+                        <div class="icon-container bg-icon-orange shadow-sm border border-white border-4">
+                             <img src="img/menu.svg" alt="" width="60px" height="60px">
+                             <!-- Decorative menu lines -->
+                             <div class="position-absolute bg-white opacity-25" style="width: 40%; height: 4px; bottom: 30%; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+
+                    <h3 class="step-title">Choose Your Meal</h3>
+                    <p class="step-desc">
+                        Browse through a variety of delicious homemade dishes and pick what you love.
+                    </p>
+                </div>
+
+                <!-- Step 2: Place Your Order -->
+                <div class="col-md-4 text-center step-item">
+                    <div class="position-relative float-anim-delayed">
+                        <div class="step-number">2</div>
+                        <!-- Blue Icon Box style (using circle container but with inner styling) -->
+                        <div class="icon-container bg-icon-blue shadow-sm border border-white border-4">
+                            <img src="img/manifest.svg" alt="" width="60px" height="60px">
+                            <!-- Little package icon decoration -->
+                            <div class="position-absolute bg-warning rounded-1 shadow-sm" style="width: 20px; height: 20px; bottom: 25px; right: 25px;"></div>
+                        </div>
+                    </div>
+
+                    <h3 class="step-title">Place Your Order</h3>
+                    <p class="step-desc">
+                        Add to Cart and Confirm. It's quick and easy.
+                    </p>
+                </div>
+
+                <!-- Step 3: Enjoy Your Food -->
+                <div class="col-md-4 text-center step-item">
+                    <div class="position-relative float-anim">
+                        <div class="step-number">3</div>
+                        <!-- Yellow Icon Circle -->
+                        <div class="icon-container bg-icon-yellow shadow-sm border border-white border-4">
+                             <img src="img/enjoy.svg" alt="" width="60px" height="60px">
+                             <!-- Confetti decoration -->
+                             <i data-lucide="sparkles" class="text-dark position-absolute" style="width: 16px; height: 16px; top: 20px; right: 20px;"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="step-title">Enjoy Your Food</h3>
+                    <p class="step-desc">
+                        Sit back and relax while your fresh, home-cooked meal arrives at your doorstep.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
