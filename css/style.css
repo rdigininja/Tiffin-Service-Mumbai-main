@@ -1819,10 +1819,11 @@ header{
         /* Main Container Styling */
         .main-card {
             background: #e9ffeb !important;
-            border-radius: 2rem;
+            border-radius: 1rem;
             border: none;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); */
             overflow: hidden;
+             box-shadow: rgb(255 255 255 / 0%) 0px 50px 100px -20px, rgb(0 0 0 / 10%) 0px 30px 60px -30px, rgb(10 37 64 / 27%) 0px -2px 6px 0px inset;
         }
 
         /* Connector Line */
@@ -1843,13 +1844,13 @@ header{
             position: absolute;
             top: 6rem; /* Start at center of first icon */
             bottom: 10rem; /* End roughly at last icon */
-            left: 50%;
+            left: 92%;
             width: 2px;
             transform: translateX(-50%);
-            z-index: 10;
+            z-index: 0;
             pointer-events: none;
             opacity: 0.4;
-            display: block !important; 
+            display: block; 
         }
 
         @media (min-width: 768px) {
@@ -1935,6 +1936,14 @@ header{
         /* SVG Responsive Utility */
         @media (max-width: 768px) {
             .icon-container { margin-top: 1.5rem; }
+        }
+
+        .box-how-to{
+            position: relative;
+            background-color: #ffffff !important;
+            z-index: 10 !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 20px 10px;
         }
 /* ================================================================= */
 
